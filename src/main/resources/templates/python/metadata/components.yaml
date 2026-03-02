@@ -1,0 +1,295 @@
+# Genesis Component Metadata
+# Defines all available Python project components
+
+components:
+  # ==================== WEB FRAMEWORKS ====================
+  flask:
+    id: flask
+    name: Flask
+    description: Lightweight WSGI web framework for Python
+    type: WEB_FRAMEWORK
+    dependencies:
+      - Flask==3.0.0
+      - Flask-CORS==4.0.0
+    templatePaths:
+      - web/flask/app.py.ftl
+      - web/flask/routes.py.ftl
+    documentationPaths: []
+    conflicts:
+      - django
+      - fastapi
+    requires: []
+
+  fastapi:
+    id: fastapi
+    name: FastAPI
+    description: Modern async web framework with automatic API documentation
+    type: WEB_FRAMEWORK
+    dependencies:
+      - fastapi==0.109.0
+      - uvicorn[standard]==0.27.0
+      - pydantic==2.5.0
+    templatePaths:
+      - web/fastapi/main.py.ftl
+      - web/fastapi/routers.py.ftl
+    documentationPaths: []
+    conflicts:
+      - flask
+      - django
+    requires: []
+
+  django:
+    id: django
+    name: Django
+    description: High-level web framework with batteries included
+    type: WEB_FRAMEWORK
+    dependencies:
+      - Django==5.0.0
+      - djangorestframework==3.14.0
+    templatePaths:
+      - web/django/manage.py.ftl
+      - web/django/settings.py.ftl
+      - web/django/urls.py.ftl
+    documentationPaths: []
+    conflicts:
+      - flask
+      - fastapi
+    requires: []
+
+  # ==================== DATABASES ====================
+  postgresql:
+    id: postgresql
+    name: PostgreSQL
+    description: Powerful open-source relational database
+    type: DATABASE
+    dependencies:
+      - psycopg2-binary==2.9.9
+      - SQLAlchemy==2.0.25
+    templatePaths:
+      - database/postgresql/db_connection.py.ftl
+    documentationPaths:
+      - database/postgresql/DB_USAGE_INSTRUCTIONS.md.ftl
+    conflicts:
+      - sqlite
+    requires: []
+
+  mysql:
+    id: mysql
+    name: MySQL
+    description: Popular open-source relational database
+    type: DATABASE
+    dependencies:
+      - pymysql==1.1.0
+      - SQLAlchemy==2.0.25
+    templatePaths:
+      - database/mysql/db_connection.py.ftl
+    documentationPaths:
+      - database/mysql/DB_USAGE_INSTRUCTIONS.md.ftl
+    conflicts:
+      - sqlite
+    requires: []
+
+  mongodb:
+    id: mongodb
+    name: MongoDB
+    description: NoSQL document-oriented database
+    type: DATABASE
+    dependencies:
+      - pymongo==4.6.1
+    templatePaths:
+      - database/mongodb/db_connection.py.ftl
+    documentationPaths:
+      - database/mongodb/DB_USAGE_INSTRUCTIONS.md.ftl
+    conflicts:
+      - sqlite
+    requires: []
+
+  sqlite:
+    id: sqlite
+    name: SQLite
+    description: Lightweight embedded SQL database
+    type: DATABASE
+    dependencies:
+      - SQLAlchemy==2.0.25
+    templatePaths:
+      - database/sqlite/db_connection.py.ftl
+    documentationPaths:
+      - database/sqlite/DB_USAGE_INSTRUCTIONS.md.ftl
+    conflicts:
+      - postgresql
+      - mysql
+      - mongodb
+      - redis
+    requires: []
+
+  redis:
+    id: redis
+    name: Redis
+    description: In-memory data structure store for caching
+    type: DATABASE
+    dependencies:
+      - redis==5.0.1
+    templatePaths:
+      - database/redis/db_connection.py.ftl
+    documentationPaths:
+      - database/redis/DB_USAGE_INSTRUCTIONS.md.ftl
+    conflicts: []
+    requires: []
+
+  # ==================== SECURITY ====================
+  jwt:
+    id: jwt
+    name: JWT Authentication
+    description: JSON Web Token authentication for APIs
+    type: SECURITY
+    dependencies:
+      - PyJWT==2.8.0
+      - cryptography==41.0.7
+    templatePaths:
+      - security/jwt/jwt_handler.py.ftl
+    documentationPaths:
+      - security/jwt/SECURITY_README.md.ftl
+    conflicts: []
+    requires:
+      - flask
+      - fastapi
+      - django
+
+  oauth2:
+    id: oauth2
+    name: OAuth2
+    description: OAuth2 authentication and authorization
+    type: SECURITY
+    dependencies:
+      - authlib==1.3.0
+    templatePaths:
+      - security/oauth2/oauth_handler.py.ftl
+    documentationPaths:
+      - security/oauth2/SECURITY_README.md.ftl
+    conflicts: []
+    requires:
+      - flask
+      - fastapi
+      - django
+
+  basicauth:
+    id: basicauth
+    name: Basic Auth
+    description: HTTP Basic Authentication
+    type: SECURITY
+    dependencies: []
+    templatePaths:
+      - security/basicauth/auth_handler.py.ftl
+    documentationPaths: []
+    conflicts: []
+    requires:
+      - flask
+      - fastapi
+      - django
+
+  apikey:
+    id: apikey
+    name: API Key
+    description: API Key-based authentication
+    type: SECURITY
+    dependencies: []
+    templatePaths:
+      - security/apikey/auth_handler.py.ftl
+    documentationPaths: []
+    conflicts: []
+    requires:
+      - flask
+      - fastapi
+      - django
+
+  # ==================== GUI FRAMEWORKS ====================
+  tkinter:
+    id: tkinter
+    name: Tkinter
+    description: Python's built-in GUI framework
+    type: GUI
+    dependencies: []
+    templatePaths:
+      - gui/tkinter/gui_app.py.ftl
+    documentationPaths: []
+    conflicts:
+      - flask
+      - fastapi
+      - django
+      - pyqt5
+      - streamlit
+    requires: []
+
+  pyqt5:
+    id: pyqt5
+    name: PyQt5
+    description: Cross-platform GUI framework based on Qt
+    type: GUI
+    dependencies:
+      - PyQt5==5.15.10
+    templatePaths:
+      - gui/pyqt5/gui_app.py.ftl
+    documentationPaths: []
+    conflicts:
+      - flask
+      - fastapi
+      - django
+      - tkinter
+      - streamlit
+    requires: []
+
+  streamlit:
+    id: streamlit
+    name: Streamlit
+    description: Framework for creating data apps and dashboards
+    type: GUI
+    dependencies:
+      - streamlit==1.31.0
+    templatePaths:
+      - gui/streamlit/streamlit_app.py.ftl
+    documentationPaths: []
+    conflicts:
+      - tkinter
+      - pyqt5
+    requires: []
+
+  # ==================== TESTING ====================
+  pytest:
+    id: pytest
+    name: pytest
+    description: Python testing framework
+    type: TESTING
+    dependencies:
+      - pytest==7.4.4
+      - pytest-cov==4.1.0
+    templatePaths: []
+    documentationPaths: []
+    conflicts: []
+    requires: []
+
+  unittest:
+    id: unittest
+    name: unittest
+    description: Python's built-in testing framework
+    type: TESTING
+    dependencies: []
+    templatePaths:
+      - testing/unittest/test_example.py.ftl
+    documentationPaths: []
+    conflicts: []
+    requires: []
+
+  # ==================== DOCKER ====================
+  docker:
+    id: docker
+    name: Docker
+    description: Docker containerization support
+    type: DOCKER
+    dependencies: []
+    templatePaths:
+      - docker/Dockerfile.ftl
+      - docker/docker-compose.yml.ftl
+      - docker/.dockerignore.ftl
+    documentationPaths: []
+    conflicts: []
+    requires: []

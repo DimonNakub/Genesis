@@ -1,0 +1,53 @@
+# Genesis - Python Project Initializr Configuration
+
+spring:
+  application:
+    name: Genesis
+
+  # FreeMarker Template Engine Configuration
+  freemarker:
+    template-loader-path: classpath:/templates/python/
+    cache: true
+    charset: UTF-8
+    check-template-location: true
+    suffix: .ftl
+
+  # Servlet Configuration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# Server Configuration
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/plain
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Genesis Application Configuration
+genesis:
+  templates:
+    base-path: classpath:/templates/python/
+    metadata-file: metadata/components.yaml
+
+  cache:
+    templates:
+      ttl: 3600
+      max-size: 100
+
+  generation:
+    default-python-version: "3.11"
+    max-project-name-length: 50
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.stephen_oosthuizen.genesis: DEBUG
+    org.springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

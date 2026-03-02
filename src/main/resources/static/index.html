@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENESIS - Python Project Initializr</title>
+    <link rel="stylesheet" href="css/nasa-theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mission Control Header -->
+    <header class="mission-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">◬</div>
+                <div class="logo-text">
+                    <h1>GENESIS</h1>
+                    <span class="subtitle">PYTHON PROJECT INITIALIZR</span>
+                </div>
+            </div>
+            <div class="status-bar">
+                <div class="status-indicator" id="systemStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">SYSTEM READY</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Mission Control Interface -->
+    <main class="mission-control">
+        <!-- Left Panel: Configuration -->
+        <section class="config-panel">
+            <div class="panel-header">
+                <h2>MISSION PARAMETERS</h2>
+                <div class="panel-accent"></div>
+            </div>
+
+            <!-- Project Templates -->
+            <div class="form-section">
+                <h3 class="section-title">PROJECT TEMPLATES</h3>
+                <div class="config-actions">
+                    <button class="btn-config" id="saveConfigBtn" title="Save current configuration">
+                        💾 Save Config
+                    </button>
+                    <button class="btn-config" id="loadConfigBtn" title="Load saved configuration">
+                        📂 Load Config
+                    </button>
+                </div>
+                <div class="template-buttons">
+                    <button class="template-btn" data-template="rest-api">
+                        <span class="template-icon">🌐</span>
+                        <span class="template-name">REST API</span>
+                    </button>
+                    <button class="template-btn" data-template="data-dashboard">
+                        <span class="template-icon">📊</span>
+                        <span class="template-name">Data Dashboard</span>
+                    </button>
+                    <button class="template-btn" data-template="ml-pipeline">
+                        <span class="template-icon">🤖</span>
+                        <span class="template-name">ML Pipeline</span>
+                    </button>
+                    <button class="template-btn" data-template="desktop-app">
+                        <span class="template-icon">💻</span>
+                        <span class="template-name">Desktop App</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Metadata Form -->
+            <div class="form-section">
+                <h3 class="section-title">PROJECT INFORMATION</h3>
+                <div class="form-group">
+                    <label for="projectName">
+                        Project Name
+                        <span class="field-hint">lowercase_with_underscores</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="projectName"
+                        name="projectName"
+                        placeholder="my_awesome_project"
+                        pattern="^[a-z][a-z0-9_]*$"
+                        required
+                    >
+                    <span class="validation-message" id="projectNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="A brief description of your project"
+                        maxlength="200"
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pythonVersion">Python Version</label>
+                        <select id="pythonVersion" name="pythonVersion">
+                            <option value="3.11" selected>Python 3.11</option>
+                            <option value="3.10">Python 3.10</option>
+                            <option value="3.9">Python 3.9</option>
+                            <option value="3.12">Python 3.12</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="authorName">Author Name</label>
+                    <input
+                        type="text"
+                        id="authorName"
+                        name="authorName"
+                        placeholder="Your Name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="authorEmail">Author Email</label>
+                    <input
+                        type="email"
+                        id="authorEmail"
+                        name="authorEmail"
+                        placeholder="your.email@example.com"
+                    >
+                </div>
+            </div>
+
+            <!-- Component Selectors -->
+            <div class="component-selectors">
+                <!-- Database Selection -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        DATABASES
+                        <span class="component-badge" id="databaseBadge">NONE</span>
+                    </h3>
+                    <div class="checkbox-group" id="databaseGroup">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="database" value="postgresql">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">PostgreSQL</span>
+                                <span class="checkbox-description">Powerful open-source relational database</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="database" value="mysql">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">MySQL</span>
+                                <span class="checkbox-description">Popular open-source relational database</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="database" value="mongodb">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">MongoDB</span>
+                                <span class="checkbox-description">NoSQL document-oriented database</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="database" value="sqlite">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">SQLite</span>
+                                <span class="checkbox-description">Lightweight embedded SQL database</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="database" value="redis">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">Redis</span>
+                                <span class="checkbox-description">In-memory data structure store for caching</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Web Framework Selection -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        WEB FRAMEWORK
+                        <span class="component-badge" id="webFrameworkBadge">NONE</span>
+                    </h3>
+                    <div class="radio-group" id="webFrameworkGroup">
+                        <label class="radio-card">
+                            <input type="radio" name="webFramework" value="none" checked>
+                            <div class="radio-content">
+                                <span class="radio-title">None</span>
+                                <span class="radio-description">No web framework</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="webFramework" value="flask">
+                            <div class="radio-content">
+                                <span class="radio-title">Flask</span>
+                                <span class="radio-description">Lightweight WSGI web framework</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="webFramework" value="fastapi">
+                            <div class="radio-content">
+                                <span class="radio-title">FastAPI</span>
+                                <span class="radio-description">Modern async framework with auto docs</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="webFramework" value="django">
+                            <div class="radio-content">
+                                <span class="radio-title">Django</span>
+                                <span class="radio-description">High-level framework with batteries included</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Security Selection -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        SECURITY
+                        <span class="component-badge" id="securityBadge">NONE</span>
+                    </h3>
+                    <div class="radio-group" id="securityGroup">
+                        <label class="radio-card">
+                            <input type="radio" name="security" value="none" checked>
+                            <div class="radio-content">
+                                <span class="radio-title">None</span>
+                                <span class="radio-description">No authentication</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="security" value="jwt">
+                            <div class="radio-content">
+                                <span class="radio-title">JWT</span>
+                                <span class="radio-description">JSON Web Token authentication</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="security" value="oauth2">
+                            <div class="radio-content">
+                                <span class="radio-title">OAuth2</span>
+                                <span class="radio-description">Google, GitHub login support</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="security" value="basicauth">
+                            <div class="radio-content">
+                                <span class="radio-title">Basic Auth</span>
+                                <span class="radio-description">Simple username/password</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="security" value="apikey">
+                            <div class="radio-content">
+                                <span class="radio-title">API Key</span>
+                                <span class="radio-description">API key-based authentication</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- GUI Framework Selection -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        GUI FRAMEWORK
+                        <span class="component-badge" id="guiBadge">NONE</span>
+                    </h3>
+                    <div class="radio-group" id="guiGroup">
+                        <label class="radio-card">
+                            <input type="radio" name="gui" value="none" checked>
+                            <div class="radio-content">
+                                <span class="radio-title">None</span>
+                                <span class="radio-description">No GUI framework</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gui" value="tkinter">
+                            <div class="radio-content">
+                                <span class="radio-title">Tkinter</span>
+                                <span class="radio-description">Built-in cross-platform GUI</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gui" value="pyqt5">
+                            <div class="radio-content">
+                                <span class="radio-title">PyQt5</span>
+                                <span class="radio-description">Professional Qt-based GUI</span>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gui" value="streamlit">
+                            <div class="radio-content">
+                                <span class="radio-title">Streamlit</span>
+                                <span class="radio-description">Data apps and dashboards</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Testing Framework -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        TESTING
+                        <span class="component-badge" id="testingBadge">NONE</span>
+                    </h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="testing" value="pytest" id="pytestCheckbox">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">pytest</span>
+                                <span class="checkbox-description">Modern Python testing framework</span>
+                            </div>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="testing" value="unittest" id="unittestCheckbox">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">unittest</span>
+                                <span class="checkbox-description">Python's built-in testing framework</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Docker Support -->
+                <div class="selector-group">
+                    <h3 class="section-title">
+                        DOCKER
+                        <span class="component-badge" id="dockerBadge">NONE</span>
+                    </h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="docker" value="docker" id="dockerCheckbox">
+                            <div class="checkbox-content">
+                                <span class="checkbox-title">Docker Support</span>
+                                <span class="checkbox-description">Dockerfile and docker-compose.yml</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Preview & Actions -->
+        <section class="preview-panel">
+            <div class="panel-header">
+                <h2>MISSION SUMMARY</h2>
+                <div class="panel-accent"></div>
+            </div>
+
+            <!-- Selected Components Display -->
+            <div class="selected-components">
+                <h3 class="section-title">SELECTED COMPONENTS</h3>
+                <div class="component-list" id="selectedComponentsList">
+                    <div class="text-muted" style="padding: 1rem; text-align: center;">No components selected</div>
+                </div>
+            </div>
+
+            <!-- Project Structure Preview -->
+            <div class="project-structure">
+                <h3 class="section-title">PROJECTED STRUCTURE</h3>
+                <div class="file-tree" id="fileTreePreview">
+                    <div class="tree-item">
+                        <span class="tree-icon">📁</span>
+                        <span class="tree-name" id="projectNamePreview">my_project</span>
+                    </div>
+                    <div class="tree-children" id="fileTreeContent">
+                        <div class="tree-item">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-name">main.py</span>
+                        </div>
+                        <div class="tree-item">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-name">requirements.txt</span>
+                        </div>
+                        <div class="tree-item">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-name">README.md</span>
+                        </div>
+                        <div class="tree-item">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-name">.gitignore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generation Button -->
+            <div class="action-section">
+                <button class="generate-btn" id="generateBtn">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">INITIATE GENERATION</span>
+                </button>
+                <div class="generation-status" id="generationStatus"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mission-footer">
+        <div class="footer-content">
+            <p>GENESIS v1.0.0 | Python Project Initializr</p>
+            <p class="footer-tech">Powered by Spring Boot 3.2.0</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">GENERATING PROJECT...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <h3>⚠️ GENERATION FAILED</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modalOkBtn">ACKNOWLEDGE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
