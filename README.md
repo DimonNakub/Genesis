@@ -508,27 +508,16 @@ The NASA-themed UI features:
 - **Live Preview:** See your project structure update in real-time
 - **Generate Button:** Beautiful gradient button with "INITIATE GENERATION"
 
-### Screenshots of GUI:
+## Screenshots of GUI:
 UI Info demo:
 <image src="https://github.com/ByteSizedLaw/Genesis/blob/609c08d14b2f713ad8ece906e1909572f6cd896d/media/Genesis%20Python%20Initializr%20UI%20demo.png"></image>
 <br>
 Component selection demo:
 <image src="https://github.com/ByteSizedLaw/Genesis/blob/609c08d14b2f713ad8ece906e1909572f6cd896d/media/Genesis%20Python%20Initializr%20UI%20component%20demo.png"></image>
 <br>
-Advanced config and boiler plate code generation:
-<video src="https://github.com/ByteSizedLaw/Genesis/blob/609c08d14b2f713ad8ece906e1909572f6cd896d/media/Genesis%20Python%20Initializr%20-%20Advanced%20configs%20and%20boilerplate%20code%20demo.mp4" width="600" controls>
-  Your browser does not support the video tag. Please see the ./media folder for the video demonstration
-</video>
+For video demonstrations, please see the [media folder](https://github.com/ByteSizedLaw/Genesis/tree/main/media) inside this project. 
 <br>
-Quick Overview Demo
-<video src="https://github.com/ByteSizedLaw/Genesis/blob/609c08d14b2f713ad8ece906e1909572f6cd896d/media/Genesis%20Python%20Initializr%20demo.mp4" width="600" controls>
-  Your browser does not support the video tag. Please see the ./media folder for the video demonstration
-</video>
-<br>
-File Generation demo:
-<video src="https://github.com/ByteSizedLaw/Genesis/blob/609c08d14b2f713ad8ece906e1909572f6cd896d/media/Genesis%20Python%20Initializr%20file%20generation%20demo.mp4" width="600" controls>
-  Your browser does not support the video tag. Please see the ./media folder for the video demonstration
-</video>
+I have included demo videos of how to select components and how the system generates code, etc.
 ---
 
 ## 💡 Technical Decisions
