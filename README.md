@@ -1,6 +1,6 @@
 # 🚀 GENESIS
 
-**Python Project Initializr** - Generate~~~~ production-ready Python projects in seconds
+**Python Project Initializr** - Generate production-ready Python projects in seconds
 
 <div align="center">
 
